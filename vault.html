@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SVS - Vote Now</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background: #f5f5f5; }
+        .container { margin-top: 50px; }
+        .candidate-box { background: #fff; padding: 15px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); }
+        .candidate-img { width: 120px; height: 120px; border-radius: 10px; margin-bottom: 10px; }
+        .btn-vote { margin-top: 15px; width: 100%; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-dark bg-dark">
+            <a href="index.php" class="navbar-brand">SIS Voting System In College Department</a>
+        </nav>
+
+        <div class="text-center mt-4">
+            <h2>Vote Now</h2>
+        </div>
+
+        <form action="saveVote.php" method="POST">
+            <div class="row mt-4">
+                <!-- Governor -->
+                <div class="col-md-6">
+                    <div class="candidate-box">
+                        <img src="images/governor.jpg" alt="President" class="candidate-img" id="govImage">
+                        <h5>President</h5>
+                        <select name="president" class="form-control" required onchange="changeGovImage()">
+                            <option value="Nicole">Nicole Cabiladas</option>
+                            <option value="Mark Smith">Mark Smith</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Vice Governor -->
+                <div class="col-md-6">
+                    <div class="candidate-box">
+                        <img src="images/vice_governor.jpg" alt="Vice President" class="candidate-img" id="viceGovImage">
+                        <h5>Vice President</h5>
+                        <select name="vice_pres" class="form-control" required onchange="changeViceGovImage()">
+                            <option value="Kyle Alberca">Kyle Alberca</option>
+                            <option value="Mark Vincent Lubrino">Mark Vincent Lubrino</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <!-- Representative 1 -->
+                <div class="col-md-6">
+                    <div class="candidate-box">
+                        <img src="images/rep1.jpg" alt="Secretary" class="candidate-img" id="secImage">
+                        <h5>Secretary</h5>
+                        <select name="secretary" class="form-control" required onchange="changeSecImage()">
+                            <option value="Joe Marie Marcelino">Joe Marie Marcelino</option>
+                            <option value="Ralph Angelo Pasobillo">Ralph Angelo Pasobillo</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Representative 2 -->
+                <div class="col-md-6">
+                    <div class="candidate-box">
+                        <img src="images/rep2.jpg" alt="Treasurer" class="candidate-img" id="treasurerImage">
+                        <h5>Treasurer</h5>
+                        <select name="treasurer" class="form-control" required onchange="changeTreasurerImage()">
+                            <option value="Kerby Pantuan">Kerby Pantuan</option>
+                            <option value="Chrisleen Wilson">Chrisleen Wilson</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <!-- Auditor -->
+                <div class="col-md-6">
+                    <div class="candidate-box">
+                        <img src="images/rep1.jpg" alt="Auditor" class="candidate-img" id="auditorImage">
+                        <h5>Auditor</h5>
+                        <select name="auditor" class="form-control" required onchange="changeAuditorImage()">
+                            <option value="Ren Landis">Ren Landis</option>
+                            <option value="Justin Respecia">Justin Respecia</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Representative 2 -->
+                <div class="col-md-6">
+                    <div class="candidate-box">
+                        <img src="images/rep2.jpg" alt="Representative 2" class="candidate-img" id="rep2Image">
+                        <h5>Representative 2</h5>
+                        <select name="rep" class="form-control" required onchange="changeRep2Image()">
+                            <option value="Kerby Pantuan">Kerby Pantuan</option>
+                            <option value="Chrisleen Wilson">Chrisleen Wilson</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-6 text-left">
+                    <a href="index.html" class="btn btn-secondary btn-vote">Vote Later</a>
+                </div>
+                <div class="col-md-6 text-right">
+                    <button type="submit" name="submit" class="btn btn-success btn-vote">Submit Vote</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function changeGovImage() {
+            var select = document.querySelector('select[name="president"]');
+            var selectedValue = select.value;
+            var image = document.getElementById("govImage");
+            image.src = selectedValue === "Nicole" ? "images/nicole.jpg" : "images/mark.jpg";
+        }
+
+        function changeViceGovImage() {
+            var select = document.querySelector('select[name="vice_pres"]');
+            var selectedValue = select.value;
+            var image = document.getElementById("viceGovImage");
+            image.src = selectedValue === "Kyle Alberca" ? "images/kyle.jpg" : "images/mark_vincent.jpg";
+        }
+
+        function changeSecImage() {
+            var select = document.querySelector('select[name="secretary"]');
+            var selectedValue = select.value;
+            var image = document.getElementById("secImage");
+            image.src = selectedValue === "Joe Marie Marcelino" ? "images/joe.jpg" : "images/ralph.jpg";
+        }
+
+        function changeTreasurerImage() {
+            var select = document.querySelector('select[name="treasurer"]');
+            var selectedValue = select.value;
+            var image = document.getElementById("treasurerImage");
+            image.src = selectedValue === "Kerby Pantuan" ? "images/kerby.jpg" : "images/chrisleen.jpg";
+        }
+
+        function changeAuditorImage() {
+            var select = document.querySelector('select[name="auditor"]');
+            var selectedValue = select.value;
+            var image = document.getElementById("auditorImage");
+            image.src = selectedValue === "Ren Landis" ? "images/ren.jpg" : "images/justin.jpg";
+        }
+
+        function changeRep2Image() {
+            var select = document.querySelector('select[name="rep_1"]');
+            var selectedValue = select.value;
+            var image = document.getElementById("rep2Image");
+            image.src = selectedValue === "Kerby Pantuan" ? "images/kerby.jpg" : "images/chrisleen.jpg";
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

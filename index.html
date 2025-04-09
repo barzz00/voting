@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Voting System</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+    
+
+    <style>
+      .navbar {
+        background-color: #424b8c !important;
+        border: none;
+        padding: 0 20px;
+      }
+  
+      .navbar .container-fluid {
+        padding: 0;
+      }
+  
+      .navbar-header {
+        display: flex;
+        align-items: center;
+      }
+  
+      .navbar-brand {
+        display: flex;
+        align-items: center;
+        color: white !important;
+        font-family: 'Oswald', sans-serif;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+  
+      .navbar-brand img {
+        margin-right: 10px;
+        width: 50px;
+        height: 50px;
+      }
+  
+      .navbar-nav {
+        margin-right: 20px;
+      }
+  
+      .navbar-nav > li > a {
+        color: white !important;
+        font-weight: bold;
+        padding: 15px 12px;
+      }
+  
+      .navbar-toggle .icon-bar {
+        background-color: white;
+      }
+  
+      .navbar-btn {
+        margin-left: 10px;
+        margin-right: 0;
+      }
+  
+      /* Form and container */
+      .login-form {
+        padding-top: 100px;
+        padding-bottom: 40px;
+      }
+  
+      .card {
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      }
+  
+      /* Responsive fixes */
+      @media (max-width: 768px) {
+        .navbar-brand {
+          font-size: 14px;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+  
+        .navbar-brand img {
+          width: 40px;
+          height: 40px;
+        }
+  
+        .navbar-nav {
+          text-align: center;
+        }
+  
+        .navbar-nav > li {
+          margin: 10px 0;
+        }
+      }
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+      .headerFont {
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 24px;
+      }
+      .subFont {
+        font-family: 'Raleway', sans-serif;
+        font-size: 14px;
+      }
+      .specialHead {
+        font-family: 'Oswald', sans-serif;
+        position: relative;
+        
+      }
+      .navbar header{
+        right: 10ox;
+      width: 200px; /* Adjust image size */
+      height: auto;
+      margin-bottom: 20px;
+      }
+      .normalFont {
+        font-family: 'Roboto Condensed', sans-serif;
+      }
+
+      
+      .time-display {
+        font-family: 'Roboto Oswald', sans-serif;
+        font-size: 18px;
+        color: white;
+        margin-top: 20px;
+        position: relative;
+        left: 40%; 
+      }
+    </style>
+
+  </head>
+  <body>
+
+
+    <div class="container">
+      <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+        <div class="container">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-header">
+            <a href="cpanel.php" class="navbar-brand">
+              <img src="images/sis.png" alt="SIS Logo" width="50" height="50" />
+              SIS Voting System In College Department
+            </a>
+          </div>
+
+          <div class="time-display" id="current-time"></div>
+        </div>
+      </nav>
+    </div>
+
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="jumbotron text-center text-block" style="padding-top:100px;">
+            <img src="images/it.png" width="250px" alt="Icon">
+            <h1 class="specialHead">Stratford International School <br> Voting System In <br>IT Department</h1>
+            <p class="normalFont">Safe . Reliable . Secure . Fast </p>
+            
+            <a href="vault.html" class="btn btn-danger btn-lg specialHead" style="border-radius:60px"> 
+              <span class="glyphicon glyphicon-folder-close"></span> Cast Your Votes Now
+            </a>
+            <br><br>
+            
+            <a href="login.php" class="btn btn-dark btn-lg specialHead" style="border-radius:60px"> 
+              <span class="glyphicon glyphicon-log-out"></span> Logout
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript for dynamic time display -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+      function updateTime() {
+        const timeElement = document.getElementById('current-time');
+        const currentDate = new Date();
+        let hours = currentDate.getHours();
+        const minutes = currentDate.getMinutes().toString().padStart(2, '0');
+        const seconds = currentDate.getSeconds().toString().padStart(2, '0');
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        
+        // Convert to 12-hour format
+        hours = hours % 12;
+        hours = hours ? hours : 12; // Handle 0 hour as 12
+        const formattedTime = `${hours}:${minutes}:${seconds} ${ampm}`;
+        timeElement.innerHTML = `Current Time: ${formattedTime}`;
+      }
+
+      // Update time every second
+      setInterval(updateTime, 1000);
+      updateTime(); // Initial call to display time immediately
+    </script>
+
+  </body>
+</html>

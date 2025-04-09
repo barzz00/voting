@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'san serif', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: skyblue;
+    padding: 20px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column; /* Stacks vertically */
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 400px; /* Reduced width for smaller form */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: #e6f8f1;
+  }
+
+  .left img {
+    width: 80%;
+    max-width: 150px; /* Adjusted logo size for better mobile experience */
+  }
+
+  .right {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .right h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  .form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 12px;
+  }
+
+  .login-btn {
+    width: 100%;
+    padding: 10px;
+    background: #00c58e;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  /* For larger screens (tablet or desktop) */
+  @media (min-width: 768px) {
+    .container {
+      max-width: 500px; /* Slightly wider form for tablets and desktops */
+    }
+
+    .left img {
+      max-width: 200px; /* Larger logo for desktops */
+    }
+
+    .right h2 {
+      font-size: 24px; /* Larger heading for desktop */
+    }
+
+    .form-group input {
+      font-size: 16px; /* Larger input text for desktop */
+    }
+
+    .login-btn {
+      font-size: 16px; /* Larger button text for desktop */
+    }
+  }
+
+  /* For extra small screens (portrait mobile) */
+  @media (max-width: 580px) {
+    .container {
+      max-width: 350px; /* Smaller max-width for smaller phones */
+    }
+
+    .left img {
+      max-width: 120px; /* Even smaller logo on tiny screens */
+    }
+
+    .form-group input {
+      font-size: 12px; /* Smaller input text */
+    }
+
+    .login-btn {
+      font-size: 14px; /* Adjusted button size for mobile */
+    }
+  }
